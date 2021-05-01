@@ -1,4 +1,4 @@
-const { Schema, model} = require('mongoose')
+const { Schema, model } = require('mongoose')
 
 
 const usuarioSchema = Schema({
@@ -19,7 +19,7 @@ const usuarioSchema = Schema({
     img: {
         type: String
     },
-    role:{
+    role: {
         type: String,
         required: true,
         default: 'USER_ROLE'
@@ -31,8 +31,8 @@ const usuarioSchema = Schema({
 
 });
 
-usuarioSchema.method('toJSON', function(){
-    const { __v, _id, ...object} = this.toObject();
+usuarioSchema.method('toJSON', function() {
+    const { __v, _id, password, ...object } = this.toObject();
     object.uid = _id
 
     return object;
